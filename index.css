@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display text-navy;
+}
+
+:focus-visible {
+  outline: 2px solid #2F6FED;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Drag & drop active state helper */
+.dropzone-active {
+  @apply border-brand-500 bg-brand-50;
+}
+
+/* Progress bar track */
+.progress-track {
+  @apply h-2 w-full overflow-hidden rounded-full bg-brand-100;
+}
+.progress-fill {
+  @apply h-full rounded-full bg-brand-500 transition-all duration-300 ease-out;
+}
+
+/* Toast animation */
+@keyframes toast-in {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.toast-anim {
+  animation: toast-in 0.22s ease-out;
+}
+
+/* Modal animation */
+@keyframes modal-in {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal-anim {
+  animation: modal-in 0.18s ease-out;
+}
